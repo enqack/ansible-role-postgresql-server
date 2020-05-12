@@ -1,0 +1,19 @@
+---
+# tasks file for enqack.postgresql_server
+
+- name: Add postgressql.org APT key
+  apt_key:
+    url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
+    id: "0x7FCC7D46ACCC4CF8"
+    state: present
+
+- name: Add postgresql.org APT repository
+  apt_repository:
+    repo: deb http://apt.postgresql.org/pub/repos/apt/ {{ ansible_distribution_release }}-pgdg main
+    state: present
+    filename: pgdg
+
+- name: Install postgresql packages
+  package:
+    name: "{{ postgresql_server_packages }}"
+    state: present

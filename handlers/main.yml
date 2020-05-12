@@ -1,0 +1,8 @@
+---
+# handlers file for enqack.postgresql_server
+- name: restart postgresql
+  service:
+    name: "{{ postgresql_server_daemon }}"
+    state: "{{ postgresql_server_service_state }}"
+  tags:
+    - restart

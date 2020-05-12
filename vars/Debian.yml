@@ -1,0 +1,11 @@
+---
+# vars file for enqack.postgresql_server
+
+postgresql_server_data_dir: "/var/lib/postgresql/{{ postgresql_server_version }}/main"
+postgresql_server_bin_path: "/usr/lib/postgresql/{{ postgresql_server_version }}/bin"
+postgresql_server_config_path: "/etc/postgresql/{{ postgresql_server_version }}/main"
+postgresql_server_daemon: postgresql@{{ postgresql_server_version }}-{{ postgresql_server_role }}
+postgresql_server_packages:
+  - postgresql-{{ postgresql_server_version }}
+  - postgresql-contrib-{{ postgresql_server_version }}
+  - python3-psycopg2
